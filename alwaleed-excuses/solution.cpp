@@ -11,5 +11,26 @@ using namespace std;
 int main()
 {
     ali;
+    int n, k;
+    cin >> n >> k;
+    int strengths[n];
+    for (int i = 0; i < n; i++)
+        cin >> strengths[i];
     
+    sort(strengths, strengths + n);
+
+    int ans = 0;
+    int totalStrength = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (strengths[i] + totalStrength <= k)
+        {
+            totalStrength += strengths[i];
+            ans++;
+        }
+        else
+            break;
+    }
+
+    cout << ans << endl;
 }
