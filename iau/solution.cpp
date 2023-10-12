@@ -18,10 +18,10 @@ int main()
         string word;
         cin >> word;
         if (word == "iau" || word == "iua" || word == "aiu" || word == "uai"){
-            cout << "Yes" << endl;
+            cout << "YES" << endl;
         }
         else {
-            cout << "No" << endl;
+            cout << "NO" << endl;
         }
     }
 }
