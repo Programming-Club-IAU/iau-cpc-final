@@ -13,26 +13,17 @@ int main()
     ali;
     int n, k;
     cin >> n >> k;
+    pair<int,int> v[n];
 
-    pair<int, int> v[n];
+    for (int i = 0 ; i < n ; i++) cin >> v[i].second >> v[i].first;
 
-    for (int i = 0; i < n; i++)
-    {
-        int second, first;
-        cin >> first >> second;
-        v[i] = make_pair(first, second);
+    sort(v, v + n);
+
+    ll ans = 0;
+
+    for (int i = n - 1 ; i >= 0 ; i--) {
+        ans += (ll) min(k, v[i].second) * v[i].first;
+        k -= min(k, v[i].second);
     }
-
-    sort(v, v + n, greater<pair<int, int> >());
-
-    int ans = 0;
-
-    for (int i = 0; i < n; i++)
-    {
-        int min_quantity = min(k, v[i].first);
-        ans += min_quantity * v[i].second;
-        k -= min_quantity;
-    }
-
-    cout << ans << endl;
+    cout << ans;
 }
