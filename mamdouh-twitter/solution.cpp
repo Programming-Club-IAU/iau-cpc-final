@@ -11,5 +11,18 @@ using namespace std;
 int main()
 {
     ali;
-    
+    int f, k, x, y, op;
+    cin >> f >> k >> x >> y >> op;
+
+    int oldFollowers = f;
+
+    for (int i = 0; i < op; i++)
+    {
+        if (f < k)
+            f += x;
+        else if (f >= k)
+            f = max(0, f - y);
+    }
+
+    cout << f - oldFollowers << endl;
 }
